@@ -26,7 +26,6 @@ img {
   border-radius: 3px;
 }
 
-
 h1 {
   font-family: Lobster;
   text-align: center;
@@ -70,4 +69,12 @@ p {
 
 .button2:hover {
   background-color: #0090e9;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: #ffffff;
 }

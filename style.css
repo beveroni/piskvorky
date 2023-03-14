@@ -1,1 +1,73 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
 
+html {
+  background-image: linear-gradient(#615dad, #ffc8da);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  width: 400px;
+  top: 40px;
+  left: 35%;
+  color: #ffffff;
+}
+
+img {
+  width: 400px;
+  border-radius: 3px;
+}
+
+
+h1 {
+  font-family: Lobster;
+  text-align: center;
+  font-weight: lighter;
+  font-size: 40px;
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  text-align: center;
+  padding: 10px 15px;
+  line-height: 150%;
+}
+
+.description {
+  background-color: #283e50;
+}
+
+.button1,
+.button2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  font-family: sans-serif;
+}
+
+.button1 {
+  background-color: #1fcca4;
+  border-bottom: 1px solid #283e50;
+}
+
+.button1:hover {
+  background-color: #1cbb96;
+}
+
+.button2 {
+  background-color: #0197f6;
+}
+
+.button2:hover {
+  background-color: #0090e9;
+}

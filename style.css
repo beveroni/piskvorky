@@ -185,3 +185,9 @@ a:active {
   grid-gap: 0;
   border: solid 1px black;
 }
+
+.cell-grid:hover,
+.cell-grid:focus {
+  background-color: #eeeded;
+  cursor: pointer;
+}

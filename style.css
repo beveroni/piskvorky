@@ -1,11 +1,10 @@
 *,
 ::before,
 ::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 html {
-  box-sizing: border-box;
   background-image: linear-gradient(#615dad, #ffc8da);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -86,14 +85,13 @@ a:active {
   flex-direction: column;
   align-items: center;
   font-family: "lobster", sans-serif;
-  color: #ffffff;
-  margin: 0 auto;
-  position: relative;
+  margin: auto;
 }
 
 .game-main-title {
   font-family: Lobster;
   font-weight: lighter;
+  color: #ffffff;
   font-size: 70px;
   margin: 5px 0 5px 0;
 }
@@ -101,13 +99,14 @@ a:active {
 .game-buttons-container {
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  max-width: 80vmin;
   align-items: baseline;
-  width: 500px;
-  margin: 5px 0;
 }
 
 .game-player-button {
   display: flex;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   background-color: transparent;
@@ -170,20 +169,18 @@ a:active {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(10, 50px);
-  grid-template-rows: repeat(10, 50px);
-  grid-gap: 0;
-  border: solid 3px black;
-  margin-bottom: 10px;
+  max-width: 80vmin;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
 }
 
 .cell-grid {
-  width: 50px;
-  height: 50px;
+  width: 8vmin;
+  height: 8vmin;
   background-color: #ffffff;
   opacity: 40%;
-  grid-gap: 0;
   border: solid 1px black;
+  display: block;
 }
 
 .cell-grid:hover,

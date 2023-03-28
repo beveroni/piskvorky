@@ -92,8 +92,9 @@ a:active {
   font-family: Lobster;
   font-weight: lighter;
   color: #ffffff;
-  font-size: 70px;
+  font-size: 60px;
   margin: 5px 0 5px 0;
+  margin-bottom: -22px;
 }
 
 .game-buttons-container {
@@ -102,6 +103,8 @@ a:active {
   width: 100%;
   max-width: 80vmin;
   align-items: baseline;
+  margin-bottom: 10px;
+  margin-bottom: -22px;
 }
 
 .game-player-button {

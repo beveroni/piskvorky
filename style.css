@@ -180,14 +180,14 @@ a:active {
 .cell-grid {
   width: 8vmin;
   height: 8vmin;
-  background-color: #ffffff;
+  background-color: #d4d4d4;
   opacity: 40%;
-  border: solid 1px black;
+  border: 0.1rem solid black;
   display: block;
 }
 
 .cell-grid:hover,
 .cell-grid:focus {
-  background-color: #eeeded;
+  background-color: white;
   cursor: pointer;
 }

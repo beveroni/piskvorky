@@ -131,6 +131,7 @@ a:active {
   width: 5vmin;
   height: 5vmin;
   filter: invert(100%);
+  background-color: none;
 }
 
 .game-buttons {
@@ -138,6 +139,15 @@ a:active {
   flex-basis: 50%;
   justify-content: flex-end;
   gap: 10px;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 17px;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -172,76 +182,89 @@ a:active {
   max-width: 80vmin;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
+  background-color: #ffffffa5;
 }
 
 .cell-grid {
   width: 8vmin;
   height: 8vmin;
-  background-color: #d4d4d4;
-  opacity: 40%;
+  opacity: 60%;
   border: 0.1rem solid black;
   display: block;
 }
 
 .cell-grid:hover,
 .cell-grid:focus {
-  background-color: white;
+  background-color: rgb(155, 153, 153);
   cursor: pointer;
 }
 
 /* game - third part */
 
-.game_field--circle {
-  width: 6vmin;
-  height: 6vmin;
-  background-color: rgba(255, 255, 255, 0);
-  border-radius: 27px;
-  background-color: transparent;
-  border: solid 3px rgb(0, 0, 0);
-}
-
-
-/* .game_field--cross {
-  /* width: 6vmin;
-  height: 6vmin; 
-}*/
-
-.game_field--cross {
+.board__field--circle {
   position: relative;
-  background-color: rgba(232, 255, 211, 0);
+  background-color: rgba(0, 0, 0, 0);
 }
 
-.game_field--cross::before,
-.game_field--cross::after {
+.board__field--circle::before {
+  content: '';
+  display: block;
+  width: 8vmin;
+  height: 8vmin;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 4px solid rgb(0, 0, 0);
+  animation: circlegrow 0.15s ease-in-out forwards;
+}
+
+@keyframes circlegrow {
+  from {
+    height: 0;
+    width: 0;
+  }
+
+  to {
+    height: 70%;
+    width: 70%;
+  }
+}
+
+.board__field--cross {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.board__field--cross::before,
+.board__field--cross::after {
   content: "";
   position: absolute;
   top: 10%;
-  left: 47%;
-  height: 80%;
-  width: 4px;
-  background-color: #04554600;
+  left: 45%;
+  height: 8vmin;
+  width: 8vmin;
+  background-color: #000000ee;
+  animation: crossgrow 0.15s ease-in-out forwards;
 }
 
-.game_field--cross::before {
+.board__field--cross::before {
   transform: rotate(45deg);
 }
 
-.game_field--cross::after {
+.board__field--cross::after {
   transform: rotate(-45deg);
 }
 
-/* .game_field--cross:before,
-.game_field--cross:after {
-  content: "";
-  position: absolute;
-  background: black;
-  left: 0;
-}
+@keyframes crossgrow {
+  from {
+    height: 0%;
+    width: 0px;
+  }
 
-.game_field--cross:before {
-  transform: rotate(45deg);
+  to {
+    height: 85%;
+    width: 4px;
+  }
 }
-
-.game_field--cross:after {
-  transform: rotate(-45deg);
-} */

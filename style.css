@@ -182,7 +182,6 @@ a {
   max-width: 80vmin;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
-  background-color: #ffffffa5;
 }
 
 .cell-grid {
@@ -191,6 +190,7 @@ a {
   opacity: 60%;
   border: 0.1rem solid black;
   display: block;
+  background: rgba(255, 255, 255, 0.448);
 }
 
 .cell-grid:hover,

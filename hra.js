@@ -143,17 +143,17 @@ buttons.forEach((button, i) => {
       setTimeout(() => {
         alert(`Vyhrálo ⭕`);
         location.reload();
-      }, 250);
+      }, 300);
     } else if (winner === 'x') {
       setTimeout(() => {
         alert(`Vyhrál ❌`);
         location.reload();
-      }, 250);
+      }, 300);
     } else if (winner === 'tie') {
       setTimeout(() => {
         alert('Hra skončila nerozhodně.');
         location.reload();
-      }, 250);
+      }, 300);
     }
   };
 

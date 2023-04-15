@@ -203,7 +203,6 @@ a {
 
 .board__field--circle {
   position: relative;
-  background-color: rgba(0, 0, 0, 0);
 }
 
 .board__field--circle::before {
@@ -234,7 +233,6 @@ a {
 
 .board__field--cross {
   position: relative;
-  background-color: rgba(0, 0, 0, 0);
 }
 
 .board__field--cross::before,

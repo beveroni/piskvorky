@@ -141,7 +141,7 @@ buttons.forEach((button, i) => {
     const winner = findWinner(gameField);
     if (winner === 'o') {
       setTimeout(() => {
-        alert(`Vyhrálo ⭕`);
+        alert(`Vyhrálo  ⭕`);
         location.reload();
       }, 300);
     } else if (winner === 'x') {

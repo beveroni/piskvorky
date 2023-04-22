@@ -1,7 +1,7 @@
 import { findWinner } from 'https://unpkg.com/piskvorky@0.1.4';
 
 let currentPlayer = 'circle';
-let button = '_';
+// let button = '_';
 
 const gameRestart = document.getElementById('restart-game');
 gameRestart.addEventListener('click', function (event) {

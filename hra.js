@@ -1,4 +1,3 @@
-// Import fuknce FindWinner
 import { findWinner } from 'https://unpkg.com/piskvorky@0.1.4';
 
 let currentPlayer = 'circle'; //Hru začíná 'o'

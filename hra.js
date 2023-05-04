@@ -11,10 +11,11 @@ gameRestart.addEventListener('click', function (event) {
   }
 });
 
+// Přidání a odebrání tříd pro všechny tlačítka
+
 const playerSwitch = (e) => {
   if (currentPlayer === 'circle') {
     e.target.classList.add('board__field--circle');
-    // e.target.disabled = true;
     currentPlayer = 'cross';
     document
       .querySelector('#nowPlayer')
@@ -22,7 +23,6 @@ const playerSwitch = (e) => {
     document.querySelector('#nowPlayer').classList.add('board__field--cross');
   } else if (currentPlayer === 'cross') {
     e.target.classList.add('board__field--cross');
-    // e.target.disabled = true;
     currentPlayer = 'circle';
     document
       .querySelector('#nowPlayer')
@@ -43,9 +43,30 @@ const playerSwitch = (e) => {
     return '_';
   });
 
+  // Kontrola jestli je na tahu hráč 'x' player - fetch
+  const fields = document.querySelectorAll('button');
+  fetch('https://piskvorky.czechitas-podklady.cz/api/suggest-next-move', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      board: gameFieldButtonsAll,
+      player: 'x', // Hledá tah pro křížek.
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (currentPlayer === 'cross') {
+        const { x, y } = data.position;
+        const field = fields[x + y * 10];
+        field.click();
+      }
+    });
+
   // Kontrola jestli je vyhrál x nebo o, nebo je tah nerazhodně - zkrácení fuknce findWinner
 
-  const winner = findWinner(gameField);
+  const winner = findWinner(gameFieldButtonsAll);
   if ((winner === 'o') | (winner === 'x')) {
     setTimeout(() => {
       alert(`Vyhrál hráč s tímot symbolem ${winner}`);

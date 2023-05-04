@@ -1,8 +1,9 @@
+// Import fuknce FindWinner
 import { findWinner } from 'https://unpkg.com/piskvorky@0.1.4';
 
-let currentPlayer = 'circle';
-// let button = '_';
+let currentPlayer = 'circle'; //Hru začíná 'o'
 
+// Upozornění pro uživatele, když chce restatovat hru
 const gameRestart = document.getElementById('restart-game');
 gameRestart.addEventListener('click', function (event) {
   if (!confirm('Chcete opravdu restartovat hru?')) {
@@ -139,14 +140,9 @@ buttons.forEach((button, i) => {
     e.target.disabled = true;
 
     const winner = findWinner(gameField);
-    if (winner === 'o') {
+    if ((winner === 'o') | (winner === 'x')) {
       setTimeout(() => {
-        alert(`Vyhrálo  ⭕`);
-        location.reload();
-      }, 300);
-    } else if (winner === 'x') {
-      setTimeout(() => {
-        alert(`Vyhrál ❌`);
+        alert(`Vyhrál hráč s tímot symbolem ${winner}`);
         location.reload();
       }, 300);
     } else if (winner === 'tie') {

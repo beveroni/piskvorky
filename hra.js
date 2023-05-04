@@ -11,27 +11,24 @@ gameRestart.addEventListener('click', function (event) {
   }
 });
 
-// const buttons = document.querySelectorAll('button');
-// buttons.forEach((button, i) => {
 const playerSwitch = (e) => {
   if (currentPlayer === 'circle') {
     e.target.classList.add('board__field--circle');
+    // e.target.disabled = true;
     currentPlayer = 'cross';
-    // gameField[i] = 'o';
     document
       .querySelector('#nowPlayer')
       .classList.remove('board__field--circle');
     document.querySelector('#nowPlayer').classList.add('board__field--cross');
-  } else {
-    // gameField[i] = 'x';
+  } else if (currentPlayer === 'cross') {
     e.target.classList.add('board__field--cross');
+    // e.target.disabled = true;
     currentPlayer = 'circle';
     document
       .querySelector('#nowPlayer')
       .classList.remove('board__field--cross');
     document.querySelector('#nowPlayer').classList.add('board__field--circle');
   }
-
   e.target.disabled = true;
 
   // Vytvoření pole
@@ -43,7 +40,6 @@ const playerSwitch = (e) => {
     if (button.classList.contains('board__field--cross')) {
       return 'x';
     }
-
     return '_';
   });
 
@@ -63,4 +59,8 @@ const playerSwitch = (e) => {
   }
 };
 
-button.addEventListener('click', playerSwitch);
+// Pomocí query selektoru vybrány všechny tlačítka herního pole, pomocí forEach na každý zavěšen posluchač událostí
+
+document.querySelectorAll('button').forEach((button) => {
+  button.addEventListener('click', playerSwitch);
+});

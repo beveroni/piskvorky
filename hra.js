@@ -11,147 +11,56 @@ gameRestart.addEventListener('click', function (event) {
   }
 });
 
-const gameField = [
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-  '_',
-];
+// const buttons = document.querySelectorAll('button');
+// buttons.forEach((button, i) => {
+const playerSwitch = (e) => {
+  if (currentPlayer === 'circle') {
+    e.target.classList.add('board__field--circle');
+    currentPlayer = 'cross';
+    // gameField[i] = 'o';
+    document
+      .querySelector('#nowPlayer')
+      .classList.remove('board__field--circle');
+    document.querySelector('#nowPlayer').classList.add('board__field--cross');
+  } else {
+    // gameField[i] = 'x';
+    e.target.classList.add('board__field--cross');
+    currentPlayer = 'circle';
+    document
+      .querySelector('#nowPlayer')
+      .classList.remove('board__field--cross');
+    document.querySelector('#nowPlayer').classList.add('board__field--circle');
+  }
 
-const buttons = document.querySelectorAll('button');
-buttons.forEach((button, i) => {
-  const playerSwitch = (e) => {
-    if (currentPlayer === 'circle') {
-      e.target.classList.add('board__field--circle');
-      currentPlayer = 'cross';
-      gameField[i] = 'o';
-      document
-        .querySelector('#nowPlayer')
-        .classList.remove('board__field--circle');
-      document.querySelector('#nowPlayer').classList.add('board__field--cross');
-    } else {
-      gameField[i] = 'x';
-      e.target.classList.add('board__field--cross');
-      currentPlayer = 'circle';
-      document
-        .querySelector('#nowPlayer')
-        .classList.remove('board__field--cross');
-      document
-        .querySelector('#nowPlayer')
-        .classList.add('board__field--circle');
+  e.target.disabled = true;
+
+  // Vytvoření pole
+  const gameField = document.querySelectorAll('button');
+  const gameFieldButtonsAll = Array.from(gameField).map((button) => {
+    if (button.classList.contains('board__field--circle')) {
+      return 'o';
+    }
+    if (button.classList.contains('board__field--cross')) {
+      return 'x';
     }
 
-    e.target.disabled = true;
+    return '_';
+  });
 
-    const winner = findWinner(gameField);
-    if ((winner === 'o') | (winner === 'x')) {
-      setTimeout(() => {
-        alert(`Vyhrál hráč s tímot symbolem ${winner}`);
-        location.reload();
-      }, 300);
-    } else if (winner === 'tie') {
-      setTimeout(() => {
-        alert('Hra skončila nerozhodně.');
-        location.reload();
-      }, 300);
-    }
-  };
+  // Kontrola jestli je vyhrál x nebo o, nebo je tah nerazhodně - zkrácení fuknce findWinner
 
-  button.addEventListener('click', playerSwitch);
-});
+  const winner = findWinner(gameField);
+  if ((winner === 'o') | (winner === 'x')) {
+    setTimeout(() => {
+      alert(`Vyhrál hráč s tímot symbolem ${winner}`);
+      location.reload();
+    }, 300);
+  } else if (winner === 'tie') {
+    setTimeout(() => {
+      alert('Hra skončila nerozhodně.');
+      location.reload();
+    }, 300);
+  }
+};
+
+button.addEventListener('click', playerSwitch);
